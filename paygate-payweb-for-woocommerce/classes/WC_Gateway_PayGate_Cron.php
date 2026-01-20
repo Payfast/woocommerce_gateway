@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2025 Payfast (Pty) Ltd
+ * Copyright (c) 2026 Payfast (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -39,7 +39,7 @@ class WC_Gateway_PayGate_Cron extends WC_Gateway_PayGate
     {
         $gwp    = new WC_Gateway_PayGate_Portal();
         $logger = wc_get_logger();
-        $logger->add('payweb-site-cron', 'Redirected to here');
+        $logger->add('payfast-gateway-site-cron', 'Redirected to here');
 
         $cutoffTime    = new DateTime('now', new DateTimeZone('UTC'));
         $cutoffMinutes = self::CUTOFF_MINUTES;
@@ -52,13 +52,13 @@ class WC_Gateway_PayGate_Cron extends WC_Gateway_PayGate
 
         $logging = self::isLogging($settings, $logging);
 
-        $logging ? $logger->add('payweb-site-cron', 'Starting site cron job') : '';
+        $logging ? $logger->add('payfast-gateway-site-cron', 'Starting site cron job') : '';
 
         $orders = wc_get_orders([
             'post_status'  => 'wc-pending',
             'date_created' => '<' . $cutoff,
         ]);
-        $logging ? $logger->add('payweb-site-cron', 'Orders: ' . serialize($orders)) : '';
+        $logging ? $logger->add('payfast-gateway-site-cron', 'Orders: ' . serialize($orders)) : '';
 
         foreach ($orders as $order) {
             $orderId = $order->get_id();
@@ -67,7 +67,7 @@ class WC_Gateway_PayGate_Cron extends WC_Gateway_PayGate
             $notes = self::getOrderNotes($orderId);
 
             $payRequestId = WC_Gateway_PayGate_Portal::getPayRequestIdNotes($notes);
-            $logging ? $logger->add('payweb-site-cron', 'PayRequestId: ' . $payRequestId) : '';
+            $logging ? $logger->add('payfast-gateway-site-cron', 'PayRequestId: ' . $payRequestId) : '';
 
             if ($payRequestId == '') {
                 break;
@@ -77,7 +77,7 @@ class WC_Gateway_PayGate_Cron extends WC_Gateway_PayGate
             $transactionStatus = $gwp->paywebQueryStatus($response);
             $responseText      = $gwp->paywebQueryText($response, $payRequestId);
 
-            $logging ? $logger->add('payweb-site-cron', 'Response Text: ' . $responseText) : '';
+            $logging ? $logger->add('payfast-gateway-site-cron', 'Response Text: ' . $responseText) : '';
 
             $responseText = self::updateOrderStatus($transactionStatus, $order, $responseText);
             $order->add_order_note('Queried by cron at ' . gmdate('Y-m-d H:i') . '<br>Response: <br>' . $responseText);
@@ -132,9 +132,9 @@ class WC_Gateway_PayGate_Cron extends WC_Gateway_PayGate
     public static function isOrderValid(bool $logging, $logger, mixed $order): void
     {
         try {
-            $logging ? $logger->add('payweb-site-cron', 'Order: ' . serialize($order)) : '';
+            $logging ? $logger->add('payfast-gateway-site-cron', 'Order: ' . serialize($order)) : '';
         } catch (Exception $e) {
-            $logging ? $logger->add('payweb-site-cron', 'Fatal error: ' . $e->getMessage()) : '';
+            $logging ? $logger->add('payfast-gateway-site-cron', 'Fatal error: ' . $e->getMessage()) : '';
         }
     }
 }

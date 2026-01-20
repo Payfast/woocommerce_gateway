@@ -1,8 +1,8 @@
-# PayWeb_WooCommerce
+# woocommerce_gateway
 
-## PayGate WooCommerce plugin v1.6.0 for WooCommerce v9.9
+## Payfast Gateway module v1.7.0 for WooCommerce v10.2.2
 
-This is the Paygate plugin for WooCommerce. Please feel free to contact the Payfast support team at
+This is the Payfast Gateway module for WooCommerce. Please feel free to contact the Payfast support team at
 support@payfast.io should you require any assistance.
 
 ## Installation
@@ -10,7 +10,7 @@ support@payfast.io should you require any assistance.
 1. **Download the Plugin**
 
     - Visit the [releases page](https://github.com/Paygate/PayWeb_WooCommerce/releases) and
-      download [paygate-payweb-for-woocommerce.zip](https://github.com/Paygate/PayWeb_WooCommerce/releases/download/v1.5.0/paygate-payweb-for-woocommerce.zip).
+      download [paygate-payweb-for-woocommerce.zip](https://github.com/Payfast/woocommerce_gateway/releases/download/v1.7.0/paygate-payweb-for-woocommerce.zip).
 
 2. **Install the Plugin**
 
@@ -24,15 +24,15 @@ support@payfast.io should you require any assistance.
 
     - Navigate to **WooCommerce > Settings**.
         - Go to the **Payments** tab.
-        - Select **Paygate** from the list of payment methods.
-        - Tick the **Enable Paygate** checkbox.
-        - Configure the plugin by entering your Paygate credentials and preferences.
+        - Select **Payfast Gateway** from the list of payment methods.
+        - Tick the **Enable Payfast Gateway** checkbox.
+        - Configure the plugin by entering your Payfast Gateway credentials and preferences.
         - Click **Save changes**.
 
     - Activate **Pay Vault**:
-        - Tick the **Enable Pay Vault** checkbox in the Paygate settings under **WooCommerce > Settings**.
+        - Tick the **Enable Pay Vault** checkbox in the Payfast Gateway settings under **WooCommerce > Settings**.
         - Click **Save changes**.
-        - Ensure Pay Vault is enabled on your Paygate account before using this feature.
+        - Ensure Pay Vault is enabled on your Payfast Gateway account before using this feature.
           Your customers' stored cards can be managed under their **WordPress User Account > Payment Methods**.
 
 ## Collaboration

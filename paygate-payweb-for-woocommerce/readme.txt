@@ -1,28 +1,28 @@
-=== Paygate for WooCommerce ===
+=== Payfast Gateway for WooCommerce ===
 Contributors: appinlet
 Tags: woocommerce, payment, paygate, ecommerce, credit card
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 8.0
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-This is the official Paygate extension to receive payments for WooCommerce.
+This is the official Payfast Gateway extension to receive payments for WooCommerce.
 
 == Description ==
 
-The Paygate plugin for WooCommerce lets you accept online payments, including credit and debit cards, QR code payments with Zapper, digital wallets like MasterPass and other payment methods like SiD Secure EFT, PayPal, Mobicred, and MoMoPay.
+The Payfast Gateway plugin for WooCommerce lets you accept online payments, including credit and debit cards, QR code payments with Zapper, digital wallets like MasterPass and other payment methods like SiD Secure EFT, PayPal, Mobicred, and MoMoPay.
 
-== Why Choose Paygate? ==
+== Why Choose Payfast Gateway? ==
 
 We provide a secure checkout experience for your shoppers with a wealth of payment methods to choose from, knowing that intelligent fraud protection engines monitor your transactions around the clock.
 
 == FAQ's ==
 
-= Does this require a Paygate merchant account? =
+= Does this require a Payfast Gateway merchant account? =
 
-Yes! You need to sign up with Payfast to receive an Encryption key and Paygate ID for this gateway to function. You can do so at [payfast.io](https://payfast.ioza) or by emailing [support@payfast.help](mailto:support@payfast.help).
+Yes! You need to sign up with Payfast to receive an Encryption key and Terminal ID for this gateway to function. You can do so at [payfast.io](https://payfast.io) or by emailing [support@payfast.help](mailto:support@payfast.help).
 
 = Does this require an SSL certificate? =
 
@@ -30,7 +30,7 @@ We do recommend obtaining an SSL certificate to allow an additional layer of saf
 
 = Where can I find API documentation? =
 
-For help setting up and configuring the Paygate plugin, please refer to our [user guide](https://github.com/PayGate/PayWeb_WooCommerce).
+For help setting up and configuring the Payfast Gateway plugin, please refer to our [user guide](https://github.com/Payfast/woocommerce_gateway).
 
 = I need some assistance. Whom can I contact? =
 
@@ -38,12 +38,17 @@ Need help to configure this plugin? Feel free to connect with our Payfast Suppor
 
 == Screenshots ==
 1. WooCommerce Admin Payments Screen
-2. WooCommerce Admin Paygate Primary Settings
-3. WooCommerce Admin Paygate Additional Settings
-4. WooCommerce Admin Paygate Additional Settings continued
+2. WooCommerce Admin Payfast Gateway Primary Settings
+3. WooCommerce Admin Payfast Gateway Additional Settings
+4. WooCommerce Admin Payfast Gateway Additional Settings continued
 
 == Changelog ==
-= 1.6.0 - 2025-07-16 =
+= 1.7.0 - 2026-01-20 =
+ * Revised configuration branding to Payfast Gateway.
+ * Updated branding to use the Payfast by Network logo.
+ * Tested on WooCommerce 10.2 and WordPress 6.8.
+
+= 1.6.0 - 2026-07-16 =
  * Resolved a fatal error that could occur when retrieving order notes for invalid or missing orders.
  * Updated to the Payfast Common Library v1.4.0 for improved payment processing.
  * Tested on WooCommerce 9.9 and WordPress 6.8.
@@ -75,7 +80,7 @@ Need help to configure this plugin? Feel free to connect with our Payfast Suppor
  * Fix multi-domain multisite network activation.
  * Fix invalid checksum message if order is already paid.
 
-[See changelog for all versions](https://raw.githubusercontent.com/PayGate/PayWeb_WooCommerce/master/CHANGELOG.md).
+[See changelog for all versions](https://raw.githubusercontent.com/Payfast/woocommerce_gateway/master/CHANGELOG.md).
 
 == Upgrade Notice ==
 = 1.5.0 - 2024-12-10 =

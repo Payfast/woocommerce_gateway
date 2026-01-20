@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2025 Payfast (Pty) Ltd
+ * Copyright (c) 2026 Payfast (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -95,7 +95,7 @@ final class WC_Gateway_PayGate_Blocks_Support extends AbstractPaymentMethodType
             'title'       => $this->get_setting('title'),
             'description' => $this->get_setting('description'),
             'supports'    => $this->get_supported_features(),
-            'logo_url'    => $this->paygate_gateway->get_plugin_url() . '/assets/images/PayGate_logo.svg',
+            'logo_url'    => $this->paygate_gateway->get_plugin_url() . '/assets/images/payfast-logo.svg',
         ];
     }
 

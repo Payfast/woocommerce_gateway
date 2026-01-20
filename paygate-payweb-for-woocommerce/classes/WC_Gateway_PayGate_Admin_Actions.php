@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2025 Payfast (Pty) Ltd
+ * Copyright (c) 2026 Payfast (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -22,11 +22,11 @@ class WC_Gateway_PayGate_Admin_Actions extends WC_Gateway_PayGate
     public static function add_testmode_admin_settings_notice($form_fields)
     {
         $form_fields[self::PAYGATE_ID_LOWER_CASE][self::DESCRIPTION] .= ' <br><br><strong>' . __(
-                'Paygate ID currently in use.',
+                'Terminal ID currently in use.',
                 'paygate-payweb-for-woocommerce'
             ) . ' ( 10011072130 )</strong>';
         $form_fields[self::ENCRYPTION_KEY][self::DESCRIPTION]        .= ' <br><br><strong>' . __(
-                'Paygate Encryption Key currently in use.',
+                'Payfast Gateway Encryption Key currently in use.',
                 'paygate-payweb-for-woocommerce'
             ) . ' ( secret )</strong>';
 
@@ -46,7 +46,7 @@ class WC_Gateway_PayGate_Admin_Actions extends WC_Gateway_PayGate
         global $theorder;
         if ($theorder->get_payment_method() == self::ID) {
             $actions['wc_custom_order_action_paygate'] = __(
-                'Query order status with Paygate',
+                'Query order status with Payfast Gateway',
                 'paygate-payweb-for-woocommerce'
             );
         }

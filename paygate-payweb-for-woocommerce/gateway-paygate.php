@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Plugin Name: Paygate for WooCommerce
+ * Plugin Name: Payfast Gateway for WooCommerce
  * Plugin URI: https://github.com/PayGate/PayWeb_WooCommerce
- * Description: Receive payments using the South African Paygate payments provider.
+ * Description: Receive payments using the South African Payfast Gateway payments provider.
  * Author: Payfast (Pty) Ltd
  * Author URI: https://payfast.io/
- * Version: 1.6.0
+ * Version: 1.7.0
  * Requires at least: 6.0
  * Tested up to: 6.8
- * WC tested up to: 9.9
+ * WC tested up to: 10.2
  * WC requires at least: 8.0
  * Requires PHP: 8.0
  *
@@ -47,7 +47,7 @@ function custom_function_after_order_placed($order_id)
         'classic-checkout',
         plugins_url('assets-classic/js/classic-checkout.js', __FILE__),
         array(),
-        '1.6.0',
+        '1.7.0',
         true
     );
 }
@@ -103,7 +103,7 @@ function paygate_every_ten_minutes($schedules)
 {
     $schedules['paygate_every_ten_minutes'] = [
         'interval' => 600,
-        'display'  => __('Paygate Every 10 Minutes', 'paygate-payweb-for-woocommerce'),
+        'display'  => __('Payfast Gateway Every 10 Minutes', 'paygate-payweb-for-woocommerce'),
     ];
 
     return $schedules;

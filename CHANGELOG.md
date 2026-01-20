@@ -1,6 +1,17 @@
 # Changelog
 
-## [[1.6.0]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.6.0)
+## [[1.7.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.7.0)
+
+### Added
+
+- Revised configuration branding to Payfast Gateway.
+- Updated branding to use the Payfast by Network logo.
+
+## Tested
+
+- Tested on WooCommerce 10.2 and WordPress 6.8.
+
+## [[1.6.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.6.0)
 
 ### Fixed
 
@@ -18,7 +29,7 @@
 
 - Code quality and security fixes.
 
-## [[1.5.0]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.5.0)
+## [[1.5.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.5.0)
 
 ### Added
 
@@ -34,7 +45,7 @@
 
 - Tested on WooCommerce 9.4.1 and WordPress 6.7.
 
-## [[1.4.9]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.9)
+## [[1.4.9]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.9)
 
 ### Fixed
 
@@ -44,7 +55,7 @@
 
 - Tested on WooCommerce 9.3.2, PHP 8.1, and WordPress 6.6.2.
 
-## [[1.4.8]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.8)
+## [[1.4.8]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.8)
 
 ### Fixed
 
@@ -54,7 +65,7 @@
 
 - Tested on WooCommerce 8.9.1, PHP 8.1, and WordPress 6.5.3.
 
-## [[1.4.7]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.7)
+## [[1.4.7]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.7)
 
 ### Added
 
@@ -69,7 +80,7 @@
 
 - Tested on WooCommerce 8.3.1, PHP 8.0, and WordPress 6.4.1.
 
-## [[1.4.6]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.6)
+## [[1.4.6]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.6)
 
 ### Fixed
 
@@ -80,7 +91,7 @@
 
 - Tested on WooCommerce 6.7.0, PHP 8.0, and WordPress 6.0.1.
 
-## [[1.4.5]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.5)
+## [[1.4.5]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.5)
 
 ### Added
 
@@ -92,14 +103,14 @@
 
 - Tested on WooCommerce 6.0 and WordPress 5.8.
 
-## [[1.4.4]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.4)
+## [[1.4.4]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.4)
 
 ### Added
 
 - Added PayPal payment type.
 - Moved plugin to WordPress.org.
 
-## [[1.4.3]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.3)
+## [[1.4.3]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.3)
 
 ### Added
 
@@ -115,7 +126,7 @@
 
 - Tested on WooCommerce 5.3 and WordPress 5.7.
 
-## [[1.4.2]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.2)
+## [[1.4.2]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.2)
 
 ### Added
 
@@ -133,7 +144,7 @@
 
 - Tested on WooCommerce 4.9 and WordPress 5.6.
 
-## [[1.4.1]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.1)
+## [[1.4.1]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.1)
 
 ### Added
 
@@ -143,7 +154,7 @@
 
 - Compatibility with WordPress 5.5.1.
 
-## [[1.4.0]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.4.0)
+## [[1.4.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.4.0)
 
 ### Added
 
@@ -161,7 +172,7 @@
 
 - Tested with WooCommerce 4.3.1.
 
-## [[1.3.2]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.3.2)
+## [[1.3.2]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.3.2)
 
 ### Fixed
 
@@ -172,7 +183,7 @@
 
 - Tested with WooCommerce 4.3.0.
 
-## [[1.3.1]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.3.1)
+## [[1.3.1]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.3.1)
 
 ### Added
 
@@ -186,7 +197,7 @@
 - Fixed the 'pay' link from the order-pay page and account link.
 - Tested with WooCommerce 4.2.0 and WordPress 5.4.2.
 
-## [[1.3.0]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.3.0)
+## [[1.3.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.3.0)
 
 ### Added
 
@@ -202,7 +213,7 @@
 
 - WooCommerce 4.0 compatible.
 
-## [[1.2.0]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/1.2.0i)
+## [[1.2.0]](https://github.com/Payfast/woocommerce_gateway/releases/tag/1.2.0i)
 
 ### Fixed
 
@@ -213,7 +224,7 @@
 
 - Tested on WooCommerce 3.6.
 
-## [[1.1.9]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.9i)
+## [[1.1.9]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.1.9i)
 
 ### Added
 
@@ -224,7 +235,7 @@
 
 - WordPress 5 compatibility.
 
-## [[1.1.8]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.8i)
+## [[1.1.8]](https://github.co/Payfast/woocommerce_gateway/releases/tag/v1.1.8i)
 
 ### Added
 
@@ -234,26 +245,26 @@
 
 - Canceled transactions now have an order status of 'canceled'.
 
-## [[1.1.7]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.7i)
+## [[1.1.7]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.1.7i)
 
 ### Added
 
 - Added auto-update feature.
 - Added check for terms and conditions on "pay_for_order" page.
 
-## [[1.1.6]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.6i)
+## [[1.1.6]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.1.6i)
 
 ### Fixed
 
 - Use non-conflict jQuery.
 
-## [[1.1.5]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.5)
+## [[1.1.5]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.1.5)
 
 ### Fixed
 
 - Applied alternative approach to JS click event.
 
-## [[1.1.4]](https://github.com/Paygate/PayWeb_WooCommerce/releases/tag/v1.1.4)
+## [[1.1.4]](https://github.com/Payfast/woocommerce_gateway/releases/tag/v1.1.4)
 
 ### Fixed
 

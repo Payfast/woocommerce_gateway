@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2025 Payfast (Pty) Ltd
+ * Copyright (c) 2026 Payfast (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -16,9 +16,9 @@ require_once 'WC_Gateway_PayGate_Admin_Actions.php';
 require_once 'WC_Gateway_PayGate_Cron.php';
 
 /**
- * Paygate Payment Gateway
+ * Payfast Gateway Payment Gateway
  *
- * Provides a Paygate Payment Gateway.
+ * Provides a Payfast Gateway Payment Gateway.
  *
  * @class       woocommerce_paygate
  * @package     WooCommerce
@@ -83,7 +83,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
     const SCRIPT_TAG                 = '";</script>';
     const SCRIPT_WIN_TOP_LOCAT_HREF  = '<script>window.top.location.href="';
     const ERROR                      = 'error';
-    const PAYGATE_TRANS_ID           = '<br/>Paygate Trans Id: ';
+    const PAYGATE_TRANS_ID           = '<br/>Payfast Gateway Trans Id: ';
 
     // Payment methods
     const CREDIT_CARD          = 'pw3_credit_card';
@@ -131,13 +131,13 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
     const MUST_BE_ENABLED                     = ' must be enabled on your account. <a href="https://www.paygate.co.za/get-started/" target="_blank">Click here</a> to find out more.';
     const PG_REFERENCE_TYPE                   = 'pg_reference_type';
     const PG_REFERENCE_DESCRIPTION            = 'Send order number only';
-    const PG_REFERENCE_PLACEHOLDER            = 'Enable this to only send the order number on the payment reference sent to Paygate';
+    const PG_REFERENCE_PLACEHOLDER            = 'Enable this to only send the order number on the payment reference sent to Payfast';
     const ORDER_META_REFERENCE                = 'order_meta_reference';
     const ORDER_META_REFERENCE_DESCRIPTION    = 'Order Meta Reference';
     const ORDER_META_REFERENCE_PLACEHOLDER    = 'Add order meta to the payment reference using a meta key (e.g. _billing_first_name)';
     const LOGGING                             = 'logging';
 
-    public $version = '1.6.0';
+    public $version = '1.7.0';
 
     public $id = 'paygate';
 
@@ -164,7 +164,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
         2 => 'Declined',
         3 => 'Cancelled',
         4 => 'User Cancelled',
-        5 => 'Received by Paygate',
+        5 => 'Received by Payfast Gateway',
         7 => 'Settlement Voided',
     ];
 
@@ -276,13 +276,12 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
             }
         }
 
-        $this->method_title       = __('Paygate', 'paygate-payweb-for-woocommerce');
+        $this->method_title       = __('Payfast Gateway', 'paygate-payweb-for-woocommerce');
         $this->method_description = __(
-            'Paygate works by sending the customer to Paygate to complete their payment.',
+            'Payfast Gateway works by sending the customer to Payfast to complete their payment.',
             'paygate-payweb-for-woocommerce'
         );
-        $this->icon               = $this->get_plugin_url() . '/assets/images/PayGate_logo.svg';
-        $this->checkPaygatePlus();
+        $this->icon               = $this->get_plugin_url() . '/assets/images/payfast-logo.svg';
         $this->has_fields = true;
         $this->supports   = array(
             'products',
@@ -386,16 +385,6 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
         }
 
         return $customPGReference;
-    }
-
-    /**
-     * @return void
-     */
-    public function checkPaygatePlus(): void
-    {
-        if (isset($this->settings['paygateplus']) && $this->settings['paygateplus'] === 'yes') {
-            $this->icon = $this->get_plugin_url() . '/assets/images/PayGate_Plus_logo.svg';
-        }
     }
 
     /**
@@ -508,7 +497,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
         $form_fields = array(
             'enabled'                   => array(
                 self::TITLE         => __('Enable/Disable', 'paygate-payweb-for-woocommerce'),
-                self::LABEL         => __('Enable Paygate Payment Gateway', 'paygate-payweb-for-woocommerce'),
+                self::LABEL         => __('Enable Payfast Gateway', 'paygate-payweb-for-woocommerce'),
                 self::TYPE          => self::CHECKBOX,
                 self::DESCRIPTION   => __(
                     'This controls whether or not this gateway is enabled within WooCommerce.',
@@ -525,13 +514,13 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => false,
-                self::DEFAULT_CONST => __('Paygate', 'paygate-payweb-for-woocommerce'),
+                self::DEFAULT_CONST => __('Payfast', 'paygate-payweb-for-woocommerce'),
             ),
             self::PAYGATE_ID_LOWER_CASE => array(
-                self::TITLE         => __('Paygate ID', 'paygate-payweb-for-woocommerce'),
+                self::TITLE         => __('Terminal ID', 'paygate-payweb-for-woocommerce'),
                 self::TYPE          => 'text',
                 self::DESCRIPTION   => __(
-                    'This is the Paygate ID, received from Paygate.',
+                    'This is the Terminal ID, received from Payfast.',
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => true,
@@ -541,7 +530,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                 self::TITLE         => __('Encryption Key', 'paygate-payweb-for-woocommerce'),
                 self::TYPE          => 'text',
                 self::DESCRIPTION   => __(
-                    'This is the Encryption Key set in the Paygate Back Office.',
+                    'This is the Encryption Key set in the Payfast Back Office.',
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => true,
@@ -551,7 +540,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                 self::TITLE         => __('Test mode', 'paygate-payweb-for-woocommerce'),
                 self::TYPE          => self::CHECKBOX,
                 self::DESCRIPTION   => __(
-                    'Uses a Paygate test account. Request test cards from Paygate',
+                    'Uses a Payfast Gateway test account. Request test cards from Payfast',
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => true,
@@ -591,7 +580,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                     'This controls the description which the user sees during checkout.',
                     'paygate-payweb-for-woocommerce'
                 ),
-                self::DEFAULT_CONST => 'Pay via Paygate',
+                self::DEFAULT_CONST => 'Pay via Payfast',
             ),
             'button_text'               => array(
                 self::TITLE         => __('Order Button Text', 'paygate-payweb-for-woocommerce'),
@@ -600,7 +589,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                     'Changes the text that appears on the Place Order button',
                     'paygate-payweb-for-woocommerce'
                 ),
-                self::DEFAULT_CONST => 'Proceed to Paygate',
+                self::DEFAULT_CONST => 'Proceed to Payfast',
             ),
             'payvault'                  => array(
                 self::TITLE         => __('Enable PayVault', 'paygate-payweb-for-woocommerce'),
@@ -608,17 +597,6 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                 self::LABEL         => self::PAYVAULT . self::MUST_BE_ENABLED,
                 self::DESCRIPTION   => __(
                     'Provides the ability for users to store their credit card details.',
-                    'paygate-payweb-for-woocommerce'
-                ),
-                self::DESC_TIP      => true,
-                self::DEFAULT_CONST => 'no',
-            ),
-            'paygateplus'               => array(
-                self::TITLE         => __('Use Paygate Plus logo', 'paygate-payweb-for-woocommerce'),
-                self::TYPE          => self::CHECKBOX,
-                self::LABEL         => 'Enable the Paygate Plus logo',
-                self::DESCRIPTION   => __(
-                    'Check to use the Paygate Plus logo rather than the default Paygate logo',
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => true,
@@ -749,7 +727,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
                 self::TITLE         => __('Send order number only', 'paygate-payweb-for-woocommerce'),
                 self::TYPE          => self::CHECKBOX,
                 self::DESCRIPTION   => __(
-                    'Enable this to only send the order number on the payment reference sent to Paygate',
+                    'Enable this to only send the order number on the payment reference sent to Payfast',
                     'paygate-payweb-for-woocommerce'
                 ),
                 self::DESC_TIP      => true,
@@ -792,13 +770,13 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
     {
         ?>
         <h3><?php
-            esc_html_e('Paygate Payment Gateway', 'paygate-payweb-for-woocommerce'); ?></h3>
+            esc_html_e('Payfast Gateway Payment Gateway', 'paygate-payweb-for-woocommerce'); ?></h3>
         <p><?php
             echo wp_kses_post(
                 sprintf(
                 // translators: %1$s and %2$s are HTML link tags used to wrap the word "Paygate".
                     __(
-                        'Paygate works by sending the user to %1$sPaygate%2$s to enter their payment information.',
+                        'Payfast Gateway works by sending the user to %1$sPayfast%2$s to enter their payment information.',
                         'paygate-payweb-for-woocommerce'
                     ),
                     '<a href="https://payfast.io/">',
@@ -807,7 +785,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
             ); ?></p>
 
         <table class="form-table" aria-describedby="paygate">
-            <th scope="col">Paygate Settings</th>
+            <th scope="col">Payfast Gateway Settings</th>
             <?php
             $this->generate_settings_html(); // Generate the HTML For the settings form.
             ?>
@@ -859,7 +837,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
         } elseif ($this->payVault == 'yes' && empty($_POST)) {
             // Display message for adding cards via "My Account" screen
 
-            echo '<p>Cards cannot be added manually. Please select the "Use a new card" option in the checkout process when paying with Paygate</p>';
+            echo '<p>Cards cannot be added manually. Please select the "Use a new card" option in the checkout process when paying with Payfast Gateway</p>';
         } else {
             if (isset($this->settings[self::DESCRIPTION]) && $this->settings[self::DESCRIPTION] != '') {
                 echo wp_kses_post(wpautop(wptexturize(esc_html($this->settings[self::DESCRIPTION]))));
@@ -1073,7 +1051,7 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
             'classic-checkout',
             plugins_url('../assets-classic/js/classic-checkout.js', __FILE__),
             array('jquery'),
-            '1.6.0',
+            '1.7.0',
             true
         );
     }
@@ -1146,18 +1124,18 @@ class WC_Gateway_PayGate extends WC_Payment_Gateway
             add_post_meta($order_id, 'paygate_error', $message);
         }
 
-        self::$wc_logger->add('paygatepayweb', 'In add notice: ' . json_encode($message));
+        self::$wc_logger->add('payfast-gateway-web', 'In add notice: ' . json_encode($message));
 
         if ($wc_session = WC()->session) {
             $wc_session->set('payweb3_error_message', $message);
             $notices = $wc_session->get('wc_notices');
             if (self::$wc_logger) {
-                self::$wc_logger->add('paygatepayweb', 'Session notices: ' . json_encode($notices));
-                self::$wc_logger->add('paygatepayweb', 'Session : ' . json_encode($wc_session));
+                self::$wc_logger->add('payfast-gateway-web', 'Session notices: ' . json_encode($notices));
+                self::$wc_logger->add('payfast-gateway-web', 'Session : ' . json_encode($wc_session));
             }
         } else {
             if (self::$wc_logger) {
-                self::$wc_logger->add('paygatepayweb', 'Session not set ');
+                self::$wc_logger->add('payfast-gateway-web', 'Session not set ');
             }
         }
 

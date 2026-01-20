@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2025 Payfast (Pty) Ltd
+ * Copyright (c) 2026 Payfast (Pty) Ltd
  *
  * Author: App Inlet (Pty) Ltd
  *
@@ -144,7 +144,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
 
         // Add order note with the PAY_REQUEST_ID for custom query
         $order->add_order_note(
-            'Initiate on Paygate started. Pay Request Id: ' . $parsed_response[self::PAY_REQUEST_ID]
+            'Initiate on Payfast Gateway started. Pay Request Id: ' . $parsed_response[self::PAY_REQUEST_ID]
         );
 
         if (!$order->has_status(self::PENDING)) {
@@ -197,7 +197,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
      */
     public function check_paygate_response(): void
     {
-        $this->logging ? self::$wc_logger->add('paygatepayweb', 'Redirect POST: ' . json_encode($_POST)) : '';
+        $this->logging ? self::$wc_logger->add('payfast-gateway-web', 'Redirect POST: ' . json_encode($_POST)) : '';
 
         // Sanitise GET and POST arrays
         $post = $this->sanitizeFields($_POST);
@@ -343,7 +343,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
             default:
                 if (!$order->has_status(self::PENDING)) {
                     if ($this->logging) {
-                        self::$wc_logger->add('paygatepayweb', 'Reached default in switch statement');
+                        self::$wc_logger->add('payfast-gateway-web', 'Reached default in switch statement');
                     }
                     $order->add_order_note(
                         'Response via Notify, RESULT_DESC: ' . $result_desc . self::PAYGATE_TRANS_ID . $transaction_id . self::PAY_REQUEST_ID_TEXT . $pay_request_id . self::BR
@@ -430,8 +430,8 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
     public function logIPNRequest(): void
     {
         if ($this->logging) {
-            self::$wc_logger->add('paygatepayweb', 'Notify POST: ' . json_encode($_POST));
-            self::$wc_logger->add('paygatepayweb', 'Notify GET: ' . json_encode($_GET));
+            self::$wc_logger->add('payfast-gateway-web', 'Notify POST: ' . json_encode($_POST));
+            self::$wc_logger->add('payfast-gateway-web', 'Notify GET: ' . json_encode($_GET));
         }
     }
 
@@ -446,7 +446,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
         if (!$this->validateChecksumNotify($paygate_data)) {
             if ($this->logging) {
                 self::$wc_logger->add(
-                    'paygatepayweb',
+                    'payfast-gateway-web',
                     'Failed to validate checksum with data ' . json_encode($paygate_data)
                 );
             }
@@ -457,7 +457,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
             exit();
         } else {
             if ($this->logging) {
-                self::$wc_logger->add('paygatepayweb', 'Validated checksum with data ' . json_encode($paygate_data));
+                self::$wc_logger->add('payfast-gateway-web', 'Validated checksum with data ' . json_encode($paygate_data));
             }
         }
     }
@@ -629,7 +629,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
             case 'redirect':
                 if ($this->settings[self::DISABLENOTIFY] === 'yes') {
                     $order->add_order_note(
-                        'Response via Redirect: Transaction successful<br/>Paygate Trans Id: ' . $transaction_id . self::PAY_REQUEST_ID_TEXT . $pay_request_id . self::BR
+                        'Response via Redirect: Transaction successful<br/>Payfast Gateway Trans Id: ' . $transaction_id . self::PAY_REQUEST_ID_TEXT . $pay_request_id . self::BR
                     );
                     if (!$order->has_status(self::PROCESSING) && !$order->has_status(self::COMPLETED)) {
                         $order->payment_complete();
@@ -639,7 +639,7 @@ class WC_Gateway_PayGate_Portal extends WC_Gateway_PayGate
             case 'ipn':
                 if ($this->settings[self::DISABLENOTIFY] !== 'yes') {
                     $order->add_order_note(
-                        'Response via Notify: Transaction successful<br/>Paygate Trans Id: ' . $transaction_id . self::PAY_REQUEST_ID_TEXT . $pay_request_id . self::BR
+                        'Response via Notify: Transaction successful<br/>Payfast Gateway Trans Id: ' . $transaction_id . self::PAY_REQUEST_ID_TEXT . $pay_request_id . self::BR
                     );
                     if (!$order->has_status(self::PROCESSING) && !$order->has_status(self::COMPLETED)) {
                         $order->payment_complete();
